@@ -27,7 +27,7 @@ class Client {
 	 *
 	 * @var integer
 	 */
-	const MIN_PRIORITY = 0;
+	const MIN_PRIORITY                  = 0;
 
 	/**
 	 * Maximum priority value which can be assigned to a job. The maximum
@@ -35,7 +35,7 @@ class Client {
 	 *
 	 * @var integer
 	 */
-	const MAX_PRIORITY = 4294967295;
+	const MAX_PRIORITY                  = 4294967295;
 
 	/**
 	 * Default configration option: Host
@@ -78,15 +78,17 @@ class Client {
 	 *
 	 * @var boolean
 	 */
-	public $connected = false;
+	public $connected                   = false;
 
 	/**
 	 * Holds configuration values.
 	 *
 	 * @var array
 	 */
-	protected $_config = [];
+	protected $_config                  = [];
 
+    
+    
 	/**
 	 * The current connection resource handle (if any).
 	 *
@@ -733,6 +735,7 @@ class Client {
 			$this->_config['logger']->error($message);
 		}
 	}
+
     
 }
 
