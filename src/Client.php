@@ -38,6 +38,41 @@ class Client {
 	const MAX_PRIORITY = 4294967295;
 
 	/**
+	 * Default configration option: Host
+	 * 
+     * @var string
+	 */
+    const CNF_DEFAULT_HOST              = '127.0.0.1';
+
+    /**
+	 * Default configration option: Port
+	 * 
+     * @var integer
+	 */
+    const CNF_DEFAULT_PORT              = 11300;
+
+    /**
+	 * Default configration option: Use Persistent connection (true == YES)
+	 * 
+     * @var boolean
+	 */
+    const CNF_DEFAULT_PERSISTENT_CONN   = true;
+
+    /**
+	 * Default configration option: timeout
+	 * 
+     * @var integer
+	 */
+    const CNF_DEFAULT_TIMEOUT_SEC       = 1;
+
+    /**
+	 * Default configration option: logger (An instance of a PSR-3 compatible logger.)
+	 * 
+     * @var object or NULL
+	 */
+    const CNF_DEFAULT_LOGGER            = NULL;
+   
+	/**
 	 * Holds a boolean indicating whether a connection to the server is
 	 * currently established or not.
 	 *
@@ -58,7 +93,8 @@ class Client {
 	 * @var resource
 	 */
 	protected $_connection;
-
+    
+    
 	/**
 	 * Constructor.
 	 *
@@ -79,11 +115,11 @@ class Client {
 	 */
 	public function __construct(array $config = []) {
 		$defaults = [
-			'persistent' => true,
-			'host' => '127.0.0.1',
-			'port' => 11300,
-			'timeout' => 1,
-			'logger' => null
+			'persistent'    => self::CNF_DEFAULT_PERSISTENT_CONN,
+			'host'          => self::CNF_DEFAULT_HOST,
+			'port'          => self::CNF_DEFAULT_PORT,
+			'timeout'       => self::CNF_DEFAULT_TIMEOUT_SEC,
+			'logger'        => self::CNF_DEFAULT_LOGGER,
 		];
 		$this->_config = $config + $defaults;
 	}
