@@ -132,7 +132,7 @@ class Client {
 	 * @return void
 	 */
 	public function __destruct() {
-		$this->disconnect();
+		$this->Disconnect();
 	}
 
 	/**
@@ -147,7 +147,7 @@ class Client {
 	 */
 	public function Connect() {
 		if (isset($this->_connection)) {
-			$this->disconnect();
+			$this->Disconnect();
 		}
 
 		$function = $this->_config['persistent'] ? 'pfsockopen' : 'fsockopen';
